@@ -6,17 +6,50 @@
 	<link rel = "stylesheet" type = "text/css" href = "frontPage.css" />
 	<style>
 	body {    font-family: arial;    }
-	.main {
-		max-width: 350px;
-		max-height: 150px;
-		background-color: red;
+	div {
+		width: 350px;
+		height: 150px;
+		background: yellow;
+    	border: 2px groove;
+    	float: left;
 	}
-	p {    color:#000;    text-indent: 20px;        }
+	button {
+		color: #000;
+		background: #FFF;
+	}
+	span {    
+		color:#000;   
+		position: relative;
+		left: -50px;
+		top: 50px;  
+		font: bold 12px serif;
+
+	}
+	.target {
+		height: 14px;
+		width: 80px;
+	}
 	</style>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
 <div class = "main">
-<p>Teste</p>
+	<button type="button" id="target">Click Me!</button> 
+	<span></span>
 </div>
+
+<script>
+	$( "div" ).mousemove(function( event ) {
+	  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+	  var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+	  $( "span:first" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
+	  $( "span:last" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
+	});	
+</script>
+<script>
+	$("#target").mousedown(function() {
+  alert( "Handler for .mousedown() called." );
+});
+</script>
 
 </body>
