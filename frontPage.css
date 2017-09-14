@@ -1,0 +1,11 @@
+body {    font-family: arial;    }
+
+.main {
+    max-width: 350px;
+    max-height: 150px;
+    background-color: navy;
+    border-style: solid;
+
+}
+
+p {    color:#000;    text-indent: 20px;        }
