@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="description" content="Project Structure">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>BW.IO Exe</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <ol>
+    <li>Create Front End Page</li>
+    <ul style="list-style-type:disc">
+      <li>Web page with one button <button> tag </button> and an image background.
+      </li>
+      <li>Display an iframe with the size (350 px,150 px)</li>
+      <li>Stream web metrics to a web server:</li>
+      <ul style="list-style-type:circle">
+        <li>the user moves the mouse around the banner</li>
+        <li>clicks on the button</li>
+        <li>report the position of the mouse (x,y) for both events to Back-end Application</li>
+        <li>every 500ms and only when fresh metrics exist.
+          <b>avoid using XMLHttpRequests</b>
+        </li>
+      </ul>
+      </li>
+    </ul>
+    <li>Back-end Application 1</li>
+    <ul style="list-style-type:disc">
+      <li>Expose a single endpoint allowing GET operations to be performed
+      </li>
+      <li>(localhost:1111/data)</li>
+      <li>Response structure: <br><i>{
+"imageUrl": "https://via.placeholder.com/350x150",
+"action": "https://bannerwise.io/",
+"buttonText": "Click Me" }</i>
+      </li>
+    </ul>
+    <li>Back-end Application 2
+      <ul style="list-style-type:disc">
+        <li>single endpoint (localhost:2222/*/</li>
+        <li>Only Condition is for the application to parse the web metrics and log them to the terminal</li>
+        <li>Persistently store the data on the server side</i>
+        </li>
+      </ul>
+      <li>Create Front End Page</li>
+      <ul style="list-style-type:disc">
+        <li>reporting app" with the history of clicks and mouse movements on a simple front-end interface</li>
+      </ul>
+  </ol>
+  <br>
+  <p><b>Notes:</b></p>
+  <ul style="list-style-type:disc">
+    <li>Use the following
+
+      <a href="https://jsbin.com/kariwokevo/edit?html,output"> HTML Boiler plate</a> for the iframe host page
+      <b>LOCAL COPY FOR TESTING WAS USED - HostPage.html </b>
+    </li>
+    <li>It’s recommended that you transpile the code.</li>
+    <li>EcmaScript2015 or highe specification</li>
+    <li>Share it via GitHub</li>
+    </dl>
+
+</body>
+
+</html>

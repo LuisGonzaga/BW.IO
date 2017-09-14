@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+Material Used:
+- jsbin Account, project guidelines
+- Github new project - https://github.com/LuisGonzaga/BW.IO
+ access token  -> d4128acc95550108fba689b6b7de7ed98cb30004
+- Visual Studio Code
+- Node.js (includes npm - node package manager)
+- GitHub Desktop
+
+=======
+Material Used:
+- jsbin Account, project guidelines
+- Github new project - https://github.com/LuisGonzaga/BW.IO
+ access token  -> d4128acc95550108fba689b6b7de7ed98cb30004
+- Visual Studio Code
+- Node.js (includes npm - node package manager)
+- GitHub Desktop
+
+>>>>>>> f4acb0a7e07e9573997bbf0350b96291152cfa14
