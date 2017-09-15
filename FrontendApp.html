@@ -21,17 +21,19 @@
 </div>
 
 <script>
-var logFile = [d.toUTCString()+" Start"];
-var $counter = 0;
+  
+	
+//});
+
 //$( document ).ready(function() {	
 // 	setTimeout(Timer, 500);
 
 
 
-// 	var Log = function(dataLog){
-// 		var d = new Date();
-// 		logFile.push(d.toUTCString()+dataLog);
-// 	}
+var Log = function(dataLog){
+	var d = new Date();
+	logFile.push(d.toUTCString()+dataLog);
+}
 
 // 	function Timer(arg) {
 // 		var copy = [];
@@ -40,7 +42,7 @@ var $counter = 0;
 // 		});
 // 		console.log(copy);
 //   }
-
+var $counter = 0;
 $("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
@@ -50,20 +52,10 @@ $("#target").mousedown(function() {
 $("div").mousemove(function( event ) {
 	  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
 	  $( "span" ).text( "(X, Y) : " + pageCoords );
-	  logFile.push(d.toUTCString()+"(X, Y) : " + pageCoords);
+	  //logFile.push(d.toUTCString()+"(X, Y) : " + pageCoords);
 	  
 });	
-  
-//var querystring = require('querystring');
-
-	
-//});
-
-			
-
-
-	
-  
+ 
 
 	
 </script>
