@@ -66,14 +66,13 @@ $( document ).ready(function() {
 
 	function Timer(arg) {
 		var copy = [];
-
-arg.logFile.forEach(function(item){
-  copy.push(item)
-});
-	console.log(copy);
+		arg.logFile.forEach(function(item){
+		copy.push(item)
+		});
+		console.log(copy);
   }
   
-  setTimeout(Timer, 500, logFile);
+  setTimeout(Timer, 500);
   
 var querystring = require('querystring');
 
