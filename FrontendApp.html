@@ -42,9 +42,10 @@
 </div>
 
 <script>
+var logFile = [d.toUTCString()+" Start"];
+var $counter = 0;
 $( document ).ready(function() {
-	var logFile = [d.toUTCString()+" Start"];
-	var $counter = 0;
+	
 	setTimeout(Timer, 500);
   
 //var querystring = require('querystring');
