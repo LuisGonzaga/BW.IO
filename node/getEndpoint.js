@@ -1,24 +1,16 @@
 var http = require("http");
+const express        = require('express');
+const bodyParser     = require('body-parser');
+const app            = express();
 
-http.createServer(function (request, response) {
+const port = 2222;
 
-   // Send the HTTP header 
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'});
-   
-   // Send the response body as "Hello World"
-   response.end('Hello World\n');
-}).listen(8081);
+app.listen(port, () => {
+  console.log('We are live on ' + port);
+});
 
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
-
-var msg = 'Hello World';
-console.log(msg);
-
-{
-    "imageUrl": "https://via.placeholder.com/350x150",
-    "action": "https://bannerwise.io/",
-    "buttonText": "Click Me"
-}
+// {
+//     "imageUrl": "https://via.placeholder.com/350x150",
+//     "action": "https://bannerwise.io/",
+//     "buttonText": "Click Me"
+// }
