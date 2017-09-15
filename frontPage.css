@@ -1,5 +1,7 @@
 body {    font-family: arial;   
           background-image: url("https://via.placeholder.com/350x150");
+          background-size: 350px 150px;
+          background-repeat: no-repeat;
  }
 div {
     width: 320px;
