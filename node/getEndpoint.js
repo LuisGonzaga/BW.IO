@@ -9,11 +9,6 @@ const answer = {imageUrl: "https://via.placeholder.com/350x150",
 }
 
 
-
-// app.listen(port, () => {
-//   console.log('We are live on ' + port);
-// });
-
 app.use(myParser.urlencoded({extended : true}));
 app.get("/yourpath", function(request, response) {
        console.log(JSON.stringify(answer)); //This prints the JSON document received
