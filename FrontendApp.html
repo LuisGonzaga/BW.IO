@@ -42,19 +42,26 @@
 </div>
 
 <script>
-	$( "div" ).mousemove(function( event ) {
+	$("div").mousemove(function( event ) {
 	  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
 	  $( "span" ).text( "(X, Y) : " + pageCoords );
+	  Log("X/Y " + pageCoords);
 	});	
 </script>
 <script>
-	$counter = 0;	
+	$counter = 0;		
 	$("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
 	});
 
-	
+	var logFile = [];
+	var Log = function(dataLog){
+		var d = new Date();
+		logFile.push(d.toUTCString()+dataLog);
+	}
 </script>
+
+
 
 </body>
