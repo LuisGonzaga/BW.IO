@@ -1,9 +1,14 @@
+<script type="text/javascript">
+
 var logFile = [d.toUTCString()+" Start"];
 var $counter = 0;
+var copy = [];
+var d = new Date();
+var pageCoords = "0,0";
 
 $( document ).ready(function() {
 	
-	setTimeout(Timer, 500);
+	setTimeout(Timer, 500, logFile)
   
 //var querystring = require('querystring');
 
@@ -11,7 +16,7 @@ $( document ).ready(function() {
 });
 
 $("div").mousemove(function( event ) {
-	  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+	  pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
 	  $( "span" ).text( "(X, Y) : " + pageCoords );
 	  logFile.push(d.toUTCString()+"(X, Y) : " + pageCoords);
 	  
@@ -24,15 +29,16 @@ $("#target").mousedown(function() {
 });
 
 var Log = function(dataLog){
-	var d = new Date();
+	d = new Date();
 	logFile.push(d.toUTCString()+dataLog);
 }
 
 function Timer(arg) {
-	var copy = [];
+	
 	arg.logFile.forEach(function(item){
 	copy.push(item)
 	});
 	console.log(copy);
  }
+ </script>
   
