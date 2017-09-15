@@ -42,25 +42,50 @@
 </div>
 
 <script>
+$( document ).ready(function() {
+	var logFile = [];
+	var $counter = 0;
+
 	$("div").mousemove(function( event ) {
 	  var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
 	  $( "span" ).text( "(X, Y) : " + pageCoords );
-	  Log("X/Y " + pageCoords);
+	  logFile.push(d.toUTCString()+"(X, Y) : " + pageCoords);
+	  
 	});	
-</script>
-<script>
-	$counter = 0;		
+			
 	$("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
+		  Log("Clicks " + $counter);
 	});
 
-	var logFile = [];
 	var Log = function(dataLog){
 		var d = new Date();
 		logFile.push(d.toUTCString()+dataLog);
 	}
+
+	function Timer(arg) {
+		var copy = [];
+
+arg.logFile.forEach(function(item){
+  copy.push(item)
+});
+	console.log(copy);
+  }
+  
+  setTimeout(Timer, 500, logFile);
+  
+var querystring = require('querystring');
+
+	
+});
+	
 </script>
+
+
+
+
+
 
 
 
