@@ -1,10 +1,5 @@
-var http = require("http");
-const express        = require('express');
-const bodyParser     = require('body-parser');
-const app            = express();
+var winston = require('winston');
 const port = 2222;
-
-app.use(myParser.urlencoded({extended : true}));
 
 var server = http.createServer(handleRequest);
 server.listen(port, function(){
@@ -13,5 +8,26 @@ server.listen(port, function(){
 });
 
 function handleRequest(request){
-    // log to file
+    winston.add(request);
+    
 }
+
+winston.add(
+    winston.transports.File, {
+      filename: 'clicksMouse.log',
+      level: 'info',
+      json: true,
+      eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
+      timestamp: false
+    }
+  )
+
+  winston.error(
+    winston.transports.File, {
+      filename: 'clicksMouse.log',
+      level: 'error',
+      json: true,
+      eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
+      timestamp: true
+    }
+  )
