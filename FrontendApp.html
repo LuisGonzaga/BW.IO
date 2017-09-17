@@ -18,25 +18,23 @@
 </div>
 
 <script>
-
-var Log = function(dataLog){
-	var d = new Date();
-	logFile.push(d.toUTCString()+dataLog);
+var d = new Date();
+var logFile = ["Start - " + d.toDateString()];
+function Log(dataLog){
+	logFile.push(d.toDateString()+dataLog);
 }
 
-// 	function Timer(arg) {
-// 		var copy = [];
-// 		arg.logFile.forEach(function(item){
-// 		copy.push(item)
-// 		});
-// 		console.log(copy);
-//   }
+$("div").mousemove(function( event ) {
+	  $( "span" ).text( "(X, Y) : " + "( " + event.pageX + ", " + event.pageY + " )" )
+	  logFile.push(d.toUTCString()+"(X, Y) : " + pageCoords);
+	  
+});	
+
 var $counter = 0;
 $("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
 		  //Log("Clicks " + $counter);
-		  Test();
 });
 
 
