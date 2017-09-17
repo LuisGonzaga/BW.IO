@@ -27,14 +27,16 @@ $( document ).ready(function() {
 	setTimeout(Log(logFile), 500);
 });
 
-function Log(dataLog){
+function Log(dataLog){	
 	logFile.push(d.toISOString()+ " - " + dataLog);
 	Logging(logFile);
 }
 
 $("div").mousemove(function( event ) {
 	  $( "span" ).text( "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")" );
-	  Log("(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")");
+	  var logText = "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")";
+	  if(logFile[logFile.length-1] != logText)
+	  		Log("(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")");
 	  
 });	
 
