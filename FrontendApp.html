@@ -18,9 +18,14 @@
 
 <script>
 var d = new Date();
-var logFile = ["Start - " + d.toISOString()];
+var logFile = [];
 var inputMetrics = "";
 var $counter = 0;
+
+$( document ).ready(function() {
+	logFile.push("Start - " + d.toISOString());
+	setTimeout(Log(logFile), 500);
+});
 
 function Log(dataLog){
 	logFile.push(d.toISOString()+ " - " + dataLog);
@@ -32,9 +37,6 @@ $("div").mousemove(function( event ) {
 	  Log("(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")");
 	  
 });	
-
-
-setTimeout(Log(logFile), 500);
 
 
 $("#target").mousedown(function() {
