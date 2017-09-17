@@ -18,12 +18,12 @@
 
 <script>
 var d = new Date();
-var logFile = ["Start - " + d.toDateString()];
+var logFile = ["Start - " + d.toISOString()];
 var inputMetrics = "";
 var $counter = 0;
 
 function Log(dataLog){
-	logFile.push(d.toDateString()+dataLog);
+	logFile.push(d.toISOString()+ " - " + dataLog);
 	Logging(logFile);
 }
 
