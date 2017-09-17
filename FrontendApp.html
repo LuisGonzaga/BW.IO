@@ -20,23 +20,28 @@
 var d = new Date();
 var logFile = ["Start - " + d.toDateString()];
 var inputMetrics = "";
+var $counter = 0;
+
 function Log(dataLog){
 	logFile.push(d.toDateString()+dataLog);
 	Logging(logFile);
 }
 
 $("div").mousemove(function( event ) {
-	  $( "span" ).text( "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")" )
-	  Log("(X, Y) : " + + "(" + event.pageX + ", " + event.pageY + ")");
+	  $( "span" ).text( "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")" );
+	  Log("(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")");
 	  
 });	
 
-var $counter = 0;
-setTimeout($("#target").mousedown(function() {
+
+setTimeout(Log(logFile), 500);
+
+
+$("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
-		  Log("Clicks " + $counter);
-}), 500);
+		  //Log("Clicks " + $counter);
+})
 
 function Logging(inputedLog){
 	$.ajax({
@@ -47,9 +52,6 @@ function Logging(inputedLog){
 				inputMetrics = inputedLog;  
 				//To do what?
 				console.log(inputedLog); 
-				inputedLog.          
-                
-
 			}
 			,
             error: function (status){
