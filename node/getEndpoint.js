@@ -15,7 +15,23 @@ server.listen(port, function(){
 });
 
 function handleRequest(request, response){
-    
+    function Logging(inpurequest){
+        $.ajax({
+                url: '/Node/logMetrics.js',
+                method: 'POST',
+                contentType: 'text/html; charset=UTF-8',
+                success: function (inputedLog, status){                
+                    inputMetrics = inputedLog;  
+                    //To do what?
+                    console.log(inputedLog); 
+                }
+                ,
+                error: function (status){
+                    console.log(status);
+                    alert("failed connection, please try again later")
+                }
+            });
+        }
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers',  'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
     response.setHeader('Content-Type', 'text/html; charset=UTF-8');
