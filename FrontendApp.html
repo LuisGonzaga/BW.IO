@@ -5,12 +5,11 @@
 	<title>Box Control - iframe 350*150</title>	
 	<link rel = "stylesheet" type = "text/css" href = "frontPage.css" />
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="mainPage.js" type="text/javascript"></script>
 </head>
 <body>
 	
 <div class = "main">
-	<button type="button" id="target" onclick="Teste();">Click Me!</button> 
+	<button type="button" id="target">Click Me!</button> 
 	<br>
 	<br>
 	<span></span>
@@ -22,6 +21,7 @@ var d = new Date();
 var logFile = ["Start - " + d.toDateString()];
 function Log(dataLog){
 	logFile.push(d.toDateString()+dataLog);
+	Logging(logFile);
 }
 
 $("div").mousemove(function( event ) {
@@ -42,8 +42,10 @@ function Logging(inputedLog){
             method: 'GET',
             contentType: 'text/html; charset=UTF-8',
             success: function (data, status){                
-                inputMetrics = data;              
-                //strChapter = rndVerse.substring(9, rndVerse.indexOf(","));
+				inputMetrics = data;  
+				//To do what?
+				console.log(data);           
+                
 
 			}
 			,
