@@ -19,23 +19,25 @@
 <script>
 var d = new Date();
 var logFile = ["Start - " + d.toDateString()];
+var inputMetrics = "";
 function Log(dataLog){
 	logFile.push(d.toDateString()+dataLog);
 	Logging(logFile);
 }
 
 $("div").mousemove(function( event ) {
-	  $( "span" ).text( "(X, Y) : " + "( " + event.pageX + ", " + event.pageY + " )" )
-	  Log("(X, Y) : " + pageCoords);
+	  $( "span" ).text( "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")" )
+	  Log("(X, Y) : " + + "(" + event.pageX + ", " + event.pageY + ")");
 	  
 });	
 
 var $counter = 0;
-$("#target").mousedown(function() {
+setTimeout($("#target").mousedown(function() {
 		  $counter++;
 		  $("p").text(" Clicks: "+$counter);
 		  Log("Clicks " + $counter);
-});
+}), 500);
+
 function Logging(inputedLog){
 	$.ajax({
             url: 'file:///E:/Code/Work_BW.IO/BW.IO/mainPage.js',
@@ -44,7 +46,8 @@ function Logging(inputedLog){
             success: function (inputedLog, status){                
 				inputMetrics = inputedLog;  
 				//To do what?
-				console.log(inputedLog);           
+				console.log(inputedLog); 
+				inputedLog.          
                 
 
 			}
