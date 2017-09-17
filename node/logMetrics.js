@@ -30,4 +30,8 @@ winston.add(
       eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
       timestamp: true
     }
+<<<<<<< HEAD
   )
+=======
+  )
+>>>>>>> d94198cbc5217ce22f04c49948e323b153827e1c
