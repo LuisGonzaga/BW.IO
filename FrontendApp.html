@@ -36,10 +36,23 @@ $("#target").mousedown(function() {
 		  $("p").text(" Clicks: "+$counter);
 		  //Log("Clicks " + $counter);
 });
+function Logging(inputedLog){
+	$.ajax({
+            url: 'file:///E:/Code/Work_BW.IO/BW.IO/mainPage.js',
+            method: 'GET',
+            contentType: 'text/html; charset=UTF-8',
+            success: function (data, status){                
+                inputMetrics = data;              
+                //strChapter = rndVerse.substring(9, rndVerse.indexOf(","));
 
-
- 
-
+			}
+			,
+            error: function (status){
+               console.log(status);
+                alert("failed connection, please try again later")
+            }
+		});
+	}
 	
 </script>
 </body>
