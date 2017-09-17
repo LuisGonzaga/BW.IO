@@ -12,6 +12,14 @@ function handleRequest(request){
     
 }
 
+app.post('/logPost', urlencodedParser, function (req, res) {
+  
+     response = $.getJSON("clicksMouse.log", function(json) {
+        console.log(json); 
+    });
+     res.end(JSON.stringify(response));
+  })
+
 winston.add(
     winston.transports.File, {
       filename: 'clicksMouse.log',
@@ -30,5 +38,4 @@ winston.add(
       eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
       timestamp: true
     }
-
   )
