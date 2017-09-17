@@ -7,6 +7,7 @@ installed at node directory
 1. FrontendApp (page) hosted at BW.IO root (includes js)
 2. HostPage.html (hosting page)
 3. FrontPage.css
+
 4 Inside Node directory:
 4.1 getEndpoint.js
 4.2 logMetrics.js
