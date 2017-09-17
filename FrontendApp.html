@@ -30,12 +30,13 @@ $( document ).ready(function() {
 function Log(dataLog){	
 	logFile.push(d.toISOString()+ " - " + dataLog);
 	Logging(logFile);
+	logFile.length = 0;
 }
 
 $("div").mousemove(function( event ) {
 	  $( "span" ).text( "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")" );
 	  var logText = "(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")";
-	  if(logFile[logFile.length-1] != logText)
+	  if(logFile[logFile.length-1] != (d.toISOString()+ " - " + logText))
 	  		Log("(X, Y) : " + "(" + event.pageX + ", " + event.pageY + ")");
 	  
 });	
@@ -48,7 +49,7 @@ $("#target").mousedown(function() {
 
 function Logging(inputedLog){
 	$.ajax({
-            url: 'file:///E:/Code/Work_BW.IO/BW.IO/mainPage.js',
+            url: '/Node/getEndpoint.js',
             method: 'GET',
             contentType: 'text/html; charset=UTF-8',
             success: function (inputedLog, status){                
