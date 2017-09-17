@@ -8,10 +8,6 @@ const answer = {imageUrl: "https://via.placeholder.com/350x150",
                 buttonText: "Click Me"};
 
 app.use(myParser.urlencoded({extended : true}));
-app.get("/yourpath", function(request, response) {
-       console.log(JSON.stringify(answer)); //This prints the JSON document received
-                                    // (if it is a JSON document)
-});
 
 var server = http.createServer(handleRequest);
 server.listen(port, function(){
