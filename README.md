@@ -8,9 +8,11 @@ installed at node directory
 2. HostPage.html (hosting page)
 3. FrontPage.css
 
-4 Inside Node directory:
-4.1 getEndpoint.js
-4.2 logMetrics.js
+4. Inside Node directory:
+a) getEndpoint.js
+b) logMetrics.js
+
+5. Build logClient.html
 
 Material Used:
 - jsbin Account, project guidelines
