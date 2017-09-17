@@ -1,4 +1,5 @@
 var http = require("http");
+var winston = require('winston')
 const express        = require('express');
 const bodyParser     = require('body-parser');
 const app            = express();
@@ -16,9 +17,20 @@ server.listen(port, function(){
 });
 
 function handleRequest(request, response){
+    winston.add(request);
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers',  'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
     response.setHeader('Content-Type', 'text/html; charset=UTF-8');
     response.end(JSON.stringify(answer));
 }
 
+
+winston.add(
+  winston.transports.File, {
+    filename: 'clicksMouse.log',
+    level: 'info',
+    json: true,
+    eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
+    timestamp: true
+  }
+)

@@ -1,17 +1,21 @@
-var http = require("http");
-const express        = require('express');
-const bodyParser     = require('body-parser');
-const app            = express();
-const port = 2222;
+const requestLogger = expressWinston.logger({
+    transports: [
+      new stackdriverTransport(),
+      new winston.transports.Console({
+        json: false,
+        colorize: colorize
+      })
+    ],
+    expressFormat: true,
+    meta: false
+  });
 
-app.use(myParser.urlencoded({extended : true}));
-
-var server = http.createServer(handleRequest);
-server.listen(port, function(){
-    //validate that it is running on the server
-    console.log("Server listening on: http://localhost:%s", port);
-});
-
-function handleRequest(request){
-    // log to file
-}
+  const errorLogger = expressWinston.errorLogger({
+    transports: [
+      new stackdriverTransport(),
+      new winston.transports.Console({
+        json: true,
+        colorize: colorize
+      })
+    ]
+  });
