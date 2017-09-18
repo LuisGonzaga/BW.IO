@@ -1,5 +1,9 @@
-var winston = require('winston');
+const http = require("http");
+const express        = require('express');
+const app            = express();
+const winston = require('winston');
 const port = 2222;
+const  bodyParser = require('body-parser')
 
 var server = http.createServer(handleRequest);
 server.listen(port, function(){
@@ -8,17 +12,8 @@ server.listen(port, function(){
 });
 
 function handleRequest(request){
-    winston.add(request);
-    
+    winston.add(request);    
 }
-
-app.post('/logPost', urlencodedParser, function (req, res) {
-  
-     response = $.getJSON("clicksMouse.log", function(json) {
-        console.log(json); 
-    });
-     res.end(JSON.stringify(response));
-  })
 
 winston.add(
     winston.transports.File, {
@@ -30,12 +25,11 @@ winston.add(
     }
   )
 
-  winston.error(
-    winston.transports.File, {
-      filename: 'clicksMouse.log',
-      level: 'error',
-      json: true,
-      eol: 'rn', // for Windows, or `eol: ‘n’,` for *NIX OSs
-      timestamp: true
-    }
-  )
+  app.post('/logPost', bodyParser, function (req, res) {
+    
+       response = $.getJSON("clicksMouse.log", function(json) {
+          console.log(json); 
+          res.end(JSON.stringify(response));
+      });
+       
+    })
