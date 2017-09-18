@@ -1,14 +1,14 @@
-var http = require("http");
+const http = require("http");
 const express        = require('express');
 const app            = express();
 const port = 1111;
+app.use(myParser.urlencoded({extended : true}));
+const server = http.createServer(handleRequest);
+
 const answer = {imageUrl: "https://via.placeholder.com/350x150",
                 action: "https://bannerwise.io/",
                 buttonText: "Click Me"};
 
-app.use(myParser.urlencoded({extended : true}));
-
-var server = http.createServer(handleRequest);
 server.listen(port, function(){
     //validate that it is running on the server
     console.log("Server listening on: http://localhost:%s", port);
