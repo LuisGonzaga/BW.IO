@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<title>Box Control - iframe 350*150</title>	
+	<link rel = "stylesheet" type = "text/css" href = "frontPage.css" />
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+        <div class = "main">
+                <button type="button" id="target" onmousedown="displayLogging">Display Logging</button> 
+                <span></span>
+                <p></p>
+        </div>
+</body>
+<script>
+function handleRequest(request, response){
+    function displayLogging(){
+        $.ajax({
+                url: '/Node/logMetrics.js',
+                method: 'GET',
+                contentType: 'text/html; charset=UTF-8',
+                success: function (inputedLog, status){                
+                    var json = $.getJSON("clicksMouse.log");
+                    response.setHeader('Access-Control-Allow-Origin', '*');
+                    response.setHeader('Access-Control-Allow-Headers',  'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+                    response.setHeader('Content-Type', 'text/html; charset=UTF-8');
+                    response.end(JSON.stringify(answer));
+                    $("span").add(json);
+                }
+                ,
+                error: function (status){
+                    console.log(status);
+                    alert("failed connection, please try again later")
+                }
+            });
+        }
+    
+}
+
+</script>
+</html> 
