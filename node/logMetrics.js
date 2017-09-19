@@ -1,19 +1,24 @@
-const http = require("http");
-const express        = require('express');
-const app            = express();
-const winston = require('winston');
-const port = 2222;
-const  bodyParser = require('body-parser')
+var http = require("http");
+var express        = require('express');
+var app            = express();
+var winston = require('winston');
+var port = 2222;
+var  bodyParser = require('body-parser')
 
 var server = http.createServer(handleRequest);
 server.listen(port, function(){
-    //validate that it is running on the server
+    app.post('/logPost', bodyParser, function (req, res) {
+        response = $.getJSON("clicksMouse.log", function(json) {
+           console.log(json); 
+           res.end(JSON.stringify(response));
+       });
+
     console.log("Server listening on: http://localhost:%s", port);
 });
 
-function handleRequest(request){
-    winston.add(request);    
-}
+methods.logLines = function(receivedInput) {
+	winston.add(receivedInput);
+};
 
 winston.add(
     winston.transports.File, {
@@ -24,11 +29,6 @@ winston.add(
       timestamp: false
     }
   )
+})
 
-  app.post('/logPost', bodyParser, function (req, res) {
-       response = $.getJSON("clicksMouse.log", function(json) {
-          console.log(json); 
-          res.end(JSON.stringify(response));
-      });
-       
-    })
+exports.data = methods;
