@@ -26,7 +26,6 @@ winston.add(
   )
 
   app.post('/logPost', bodyParser, function (req, res) {
-    
        response = $.getJSON("clicksMouse.log", function(json) {
           console.log(json); 
           res.end(JSON.stringify(response));
