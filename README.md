@@ -1,18 +1,20 @@
 # BW.IO
 
-First file added - ProjectObjectives.html
+First file added - ProjectObjectives.html (installed at node directory)
 
-installed at node directory
-
-1. FrontendApp (page) hosted at BW.IO root (includes js)
-2. HostPage.html (hosting page)
+1. FrontendApp.html (page) hosted at BW.IO root 
+2. FrontendApp.js - javascript file 
 3. FrontPage.css
+4. HostPage.html (hosting page)
+5. repApplication.html (reporting page)
+6. repApplication.js corresponding JS
 
-4. Inside Node directory
+
+7. Inside Node directory
 a) getEndpoint.js
 b) logMetrics.js
 
-5. Build repApplication.html
+
 
 Material Used:
 - jsbin Account, project guidelines
